@@ -51,3 +51,6 @@ E:\Projects\JSNLogWithNet\JSNLog\Web\bin\Newtonsoft.Json.xml
 E:\Projects\JSNLogWithNet\JSNLog\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
 E:\Projects\JSNLogWithNet\JSNLog\Web\obj\Debug\Web.dll
 E:\Projects\JSNLogWithNet\JSNLog\Web\obj\Debug\Web.pdb
+E:\Projects\JSNLogWithNet\JSNLog\Web\bin\NLog.config
+E:\Projects\JSNLogWithNet\JSNLog\Web\bin\NLog.dll
+E:\Projects\JSNLogWithNet\JSNLog\Web\bin\NLog.xml
