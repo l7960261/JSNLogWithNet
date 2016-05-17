@@ -1,10 +1,13 @@
 ﻿(function () {
 
-   function logProvide($provide) {
-      $provide.decorator('$log', logDecorator);
-   }
+   logToServerProvide.$inject = ['$provide'];
+   logDecorator.$inject = ['$delegate'];
+   exceptionDecorator.$inject = ['$delegate'];
 
-   logProvide.$inject = ['$provide'];
+   function logToServerProvide($provide) {
+      $provide.decorator('$log', logDecorator);
+      $provide.decorator('$exceptionHandler', exceptionDecorator);
+   }
 
    function logDecorator($delegate) {
       var origLog = $delegate.log;
@@ -41,16 +44,15 @@
       return $delegate;
    }
 
-   logDecorator.$inject = ['$delegate'];
+   function exceptionDecorator($delegate) {
+      return function (exception, cause) {
+         $delegate(exception, cause);
+         JL().fatalException(cause, exception);
+      };
+   }
 
    angular.module('logToServer', [])
-      .config(logProvide)
-      .factory('$exceptionHandler', function () {
-         return function (exception, cause) {
-            JL().fatalException(cause, exception);
-            throw exception;
-         };
-      })
+      .config(logToServerProvide)
       .factory('logToServerInterceptor', ['$q', function ($q) {
          var myInterceptor = {
             'request': function (config) {
