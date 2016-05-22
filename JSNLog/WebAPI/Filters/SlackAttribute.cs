@@ -21,8 +21,8 @@ namespace WebAPI.Filters
 
       public static void PostMessage(string Message) {
          var settings = new Dictionary<string, string> {
-            { "token", "" },
-            { "channel", "" },
+            { "token", "YOUR TOKEN" },
+            { "channel", "YOUR CHANNEL" },
             { "username", "WEB API BOT" },
             { "text", Message }
          };
