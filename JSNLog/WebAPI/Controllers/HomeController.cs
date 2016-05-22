@@ -12,7 +12,9 @@ namespace WebAPI.Controllers
         // GET: api/Home
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var demo = new string[] { "value1", "value2" };
+            var a = demo[2];
+            return demo;
         }
 
         // GET: api/Home/5
